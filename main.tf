@@ -1,5 +1,5 @@
 provider "google" {
-  project = "personal-projects-1702"
+  project = var.gcp_project_id
   region  = "us-central1"
 }
 
