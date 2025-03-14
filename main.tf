@@ -1,6 +1,7 @@
 provider "google" {
   project = var.gcp_project_id
   region  = "us-central1"
+  zone    = "us-central1-b"
 }
 
 resource "google_compute_instance" "my-instance" {
