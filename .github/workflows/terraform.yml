@@ -28,23 +28,17 @@ jobs:
 
     - name: Terraform Init
       run: terraform init
-      env:
-        GOOGLE_CREDENTIALS: ${{ secrets.GCP_PROJECTS_SERVICE_ACCOUNT }}
 
     - name: Terraform Format
       run: terraform fmt -check
-      env:
-        GOOGLE_CREDENTIALS: ${{ secrets.GCP_PROJECTS_SERVICE_ACCOUNT }}
 
     - name: Terraform Plan
       run: terraform plan
       env:
         GOOGLE_CREDENTIALS: ${{ secrets.GCP_PROJECTS_SERVICE_ACCOUNT }}
-        TF_VAR_gcp_project_id: ${{ secrets.GCP_PROJECT_ID }}
 
     - name: Terraform Apply
       if: github.ref == 'refs/heads/main' && github.event_name == 'push'
       run: terraform apply -auto-approve
       env:
         GOOGLE_CREDENTIALS: ${{ secrets.GCP_PROJECTS_SERVICE_ACCOUNT }}
-        TF_VAR_gcp_project_id: ${{ secrets.GCP_PROJECT_ID }}
