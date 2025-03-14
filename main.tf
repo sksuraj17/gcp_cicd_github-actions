@@ -6,7 +6,6 @@ provider "google" {
 resource "google_compute_instance" "my-instance" {
   name         = "my-instance-01"
   machine_type = "e2-micro"
-  zone         = "any"
 
   boot_disk {
     initialize_params {
