@@ -3,8 +3,8 @@ provider "google" {
   region  = "us-central1"
 }
 
-resource "google_storage_bucket" "auto-expire" {
-  name          = "no-public-access-bucket"
+resource "google_storage_bucket" "my-bucket" {
+  name          = "my-bucket-for-cicd-test-gcp"
   location      = "US"
   force_destroy = true
 }
